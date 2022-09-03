@@ -9,11 +9,15 @@ class Project extends Model
 {
     use HasFactory;
 
-    public function scopeVisibility($query)
+    public function scopeVisibility($query, int $projectID = null)
     {
-        return $query->where('visible', '=', true)->orderBy('position', 'asc');
+        if ($projectID == null) {
+            return $query->where('visible', 1);
+        } else {
+            return $query->where('visible', 1)->where('id', $projectID);
+        }
     }
-    
+
 
     public function category()
     {
@@ -25,7 +29,7 @@ class Project extends Model
     {
         return $this->belongsTo(WhereMade::class, 'where_made_id');
     }
-    
+
 
     public function projectArticleSection()
     {

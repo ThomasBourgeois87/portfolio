@@ -17,8 +17,14 @@ class ProjectController extends Controller
 
     public function show(Project $project)
     {
+        $projectVisible = Project::visibility($project->id)->get()->first();
+
+        if($projectVisible == null) {
+            abort(404);
+        }
+
         return view('portfolio.project-article', [
-            'project' => $project,
+            'project' => $projectVisible,
         ]);
     }
 
