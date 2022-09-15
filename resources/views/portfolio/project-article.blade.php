@@ -3,7 +3,7 @@
     <x-slot:content>
         <article class="section projectArticle">
             <nav class="projectArticle__navbar">
-                <a href="/">Rour à l'accueil</a>
+                <a href="/#projects_section">Retour à l'accueil</a>
 
             </nav>
             <header class="projectArticle__header">
@@ -55,9 +55,18 @@
                 @endforeach
             </div>
 
-            <footer>
-
-            </footer>
+            @if( count($relatedProjects) !== 0 )
+                <footer class="projectArticle__relatedProject__footer">
+                    <h3 class="projectArticle__relatedProject__title">Autres projets semblables</h3>
+                    @foreach ($relatedProjects as $relatedProject)
+                        <x-project-article.related-project-card
+                            :title="$relatedProject->name"
+                            :href="$relatedProject->slug"
+                            :image="$relatedProject->cover_image"
+                        ></x-project-article.related-project-card>
+                    @endforeach
+                </footer>
+            @endif
 
         </article>
 

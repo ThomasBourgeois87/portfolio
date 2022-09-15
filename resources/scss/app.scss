@@ -31,11 +31,12 @@
 :root {
 	--content-primary: #0B0A0B;
 	--content-secondary: #636363;
+	--content-terciary: #FFFFFF;
 	--background-primary: #FFFBF6;
 	--background-secondary: #dbd8f0;
 	--background-terciary: #FFF2E5;
-	--cta-primary: #FF7C54;
-	--cta-primary-hover: #ff906e;
+	--cta-primary: #ff6537;
+	--cta-primary-hover: #e7592d;
 	--border-primary: #0B0A0B;
 	--border-secondary: #B9B9B9;
 
@@ -70,7 +71,6 @@
 body {
 	font-family: Sora-Regular, sans-serif;
 	background-color: var(--background-primary);
-	background-image: url("/assets/background_body.webp");
 	background-size: contain;
 	color: var(--content-primary);
 }
@@ -132,18 +132,18 @@ ul {
 }
 
 .primaryButton {
-	color: var(--content-primary);
+	display: inline-flex;
+	color: var(--content-terciary);
+	font-family: 'Sora-SemiBold', sans-serif;
 	background-color: var(--cta-primary);
 	padding: 1rem 2rem;
-	border-radius: 12px;
-	display: flex;
+	border-radius: var(--border-radius);
 	justify-content: center;
 	align-items: center;
-	font-weight: bold;
 	align-self: flex-start;
-	transition: background-color .3s ease-in-out;
 
-	// button dont grow because of flex
+	transition: background-color 0.3s cubic-bezier(0.07, 0.29, 0.2, 1.01);
+
 
 
 	&>svg, &>img {
@@ -153,7 +153,7 @@ ul {
 	&:hover {
 		cursor: pointer;
 		background-color: var(--cta-primary-hover);
-		transition: background-color .3s ease-in-out;
+		transition: background-color 0.3s cubic-bezier(0.07, 0.29, 0.2, 1.01);
 	}
 }
 
@@ -164,6 +164,14 @@ ul {
 	align-items: start;
 	justify-content: center;
 	position: relative;
+
+	&__animation {
+		position: absolute;
+		bottom: 1rem;
+		left: 50%;
+		width: 12rem;
+		transform: translateX(-50%);
+	}
 
 	&__presentation {
 		margin: 5rem 0 4rem 0;
@@ -179,10 +187,7 @@ ul {
 	}
 
 	&__arrow {
-		position: absolute;
-		bottom: 1rem;
-		left: 50%;
-		transform: translateX(-50%);
+		display: none;
 	}
 }
 
@@ -222,31 +227,9 @@ ul {
 			width: 100%;
 		}
 	}
-}
 
-.homepageSkills {
-	&__skillsContainer {
-		margin-top: 8rem;
-
-		&__skills {
-
-			& > h3 {
-				margin-bottom: 2rem;
-			}
-
-			&:first-child {
-				margin-bottom: 4rem;
-			}
-		}
-	}
-
-	&__list {
-		display: flex;
-		overflow-x: auto;
-
-		& > li {
-			margin: auto;
-		}
+	&__viewMore {
+		margin-top: 4rem;
 	}
 }
 
@@ -260,35 +243,6 @@ ul {
 }
 
 
-.cardSkill {
-	background-color: var(--background-secondary);
-	padding: 2rem;
-	display: flex;
-	flex-direction: column;
-	border-radius: 12px;
-	width: 16rem;
-	height: 20rem;
-	margin-right: 2rem;
-	justify-content: space-between;
-	align-items: center;
-	position: relative;
-
-
-	&__image {
-		filter: drop-shadow(16px 24px 16px rgba(0, 0, 0, .3));
-		max-width: 10rem;
-		transition: transform 0.3s cubic-bezier(0.42, 0, 0, 1.02);
-
-		&:hover {
-			transform: scale(1.2);
-			transition: transform 0.4s cubic-bezier(0.42, 0, 0, 1.02);
-		}
-	}
-
-	&__skill {
-		text-align: center;
-	}
-}
 
 .cardProject {
 	cursor: pointer;
@@ -416,6 +370,49 @@ ul {
 			}
 		}
 	}
+
+	&__relatedProject {
+		transition: all .3s ease-in-out;
+
+		&__footer {
+			margin-top: 14rem;
+		}
+
+		&__title {
+			margin-bottom: 2rem;
+		}
+
+		&__container {
+			position: relative;
+			padding: 2rem;
+			margin-top: 1rem;
+
+			&__imageContainer {
+				height: 6rem;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: -1;
+				width: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				overflow: hidden;
+
+				&__image {
+					width: 100%;
+					transition: all .3s ease-in-out;
+				}
+			}
+		}
+
+
+		&:hover &__container__imageContainer__image{
+			transform: scale(1.2);
+			filter: brightness(0.9);
+			transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+		}
+	}
 }
 
 @media screen and (min-width: 500px) {
@@ -429,6 +426,24 @@ ul {
 @media screen and (min-width: 800px) {
 	:root {
 		--padding-mobile: 4rem;
+	}
+	
+
+	.homepageHeader {
+		&__animation {
+			bottom: unset;
+			left: unset;
+			right: 0rem;
+			width: 20vw;
+		}
+
+		&__arrow {
+			display: block;
+			position: absolute;
+			bottom: 1rem;
+			left: 50%;
+			transform: translateX(-50%);
+		}
 	}
 
 	.projectArticle {

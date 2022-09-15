@@ -23,8 +23,12 @@ class ProjectController extends Controller
             abort(404);
         }
 
+        // get project with the same category but not the current project
+        $relatedProjects = Project::visibility()->where('category_id', $project->category_id)->where('id', '!=', $project->id)->get();
+
         return view('portfolio.project-article', [
             'project' => $projectVisible,
+            'relatedProjects' => $relatedProjects,
         ]);
     }
 
