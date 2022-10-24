@@ -223,7 +223,7 @@ ul {
 
 		&__image {
 			object-fit: cover;
-			object-position: center center;
+			object-position: 0 -34px;
 			width: 100%;
 		}
 	}
@@ -332,7 +332,7 @@ ul {
 		&__title {
 			font-size: var(--h2);
 		}
-	
+
 		&__categories {
 			color: var(--content-secondary);
 			margin-top: 2rem;
@@ -427,7 +427,7 @@ ul {
 	:root {
 		--padding-mobile: 4rem;
 	}
-	
+
 
 	.homepageHeader {
 		&__animation {

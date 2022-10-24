@@ -12,7 +12,7 @@
 	<meta name="Robots" content="all">
 	@vite(['resources/scss/app.scss'])
 	<link rel="icon" type="image/png" href="{{ Vite::asset('resources/images/briefcase.png') }}">
-	<script>
+	<script defer async>
 		var _paq = window._paq = window._paq || [];
 		_paq.push(['trackPageView']);
 		_paq.push(['enableLinkTracking']);

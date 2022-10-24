@@ -32,8 +32,26 @@
             </div>
             <div class="homepageMyselfPresentation__image">
                 <div class="homepageMyselfPresentation__imageContainer">
-                    <img class="homepageMyselfPresentation__imageContainer__image" src="{{ Vite::asset('resources/images/myself.jpg') }}"
-                         alt="Thomas Bourgeois - Photo de profil">
+{{--                    <img--}}
+{{--                        class="homepageMyselfPresentation__imageContainer__image"--}}
+{{--                        src="{{ Vite::asset('resources/images/myself.jpg') }}"--}}
+{{--                        loading="lazy"--}}
+{{--                         alt="Thomas Bourgeois - Photo de profil">--}}
+                    <picture>
+                        <source
+                            {{ Vite::asset('resources/images/myself.jpg') }} srcset="{{ Vite::asset('resources/images/myself.webp') }}"
+                            type="image/webp"
+                        >
+                        <source
+                            {{ Vite::asset('resources/images/myself.jpg') }} srcset="{{ Vite::asset('resources/images/myself.jpg') }}"
+                            type="image/jpeg">
+
+                        <img
+                            class="homepageMyselfPresentation__imageContainer__image"
+                            src="{{ Vite::asset('resources/images/myself.jpg') }}"
+                            alt="Thomas Bourgeois - Photo de profil"
+                        >
+                    </picture>
                 </div>
             </div>
         </section>
@@ -58,5 +76,5 @@
     @endsection
 
     @section('javascript')
-        <script src="{{ Vite::asset('resources/js/lottie.js') }}" type="module" defer></script>
+        <script src="{{ Vite::asset('resources/js/lottie.js') }}" type="module" defer async></script>
     @endsection

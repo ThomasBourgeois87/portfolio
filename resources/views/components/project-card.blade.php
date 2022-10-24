@@ -4,7 +4,9 @@
     <a href="{{ route('project.view', $project->slug) }}">
         <div class="cardProject" data-id="" id="project">
             <div class="cardProject__imageContainer">
-                <img class="cardProject__image"
+                <img
+                    loading="lazy"
+                    class="cardProject__image"
                     src="{{ $project->cover_image }}"
                     alt="Thomas Bourgeois - {{ $project->name }}"
                 >
