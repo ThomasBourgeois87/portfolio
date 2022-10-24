@@ -1,7 +1,7 @@
 @props(['project'])
 
 <li>
-    <a href="{{ route('view_project', $project->slug) }}">
+    <a href="{{ route('project.view', $project->slug) }}">
         <div class="cardProject" data-id="" id="project">
             <div class="cardProject__imageContainer">
                 <img class="cardProject__image"

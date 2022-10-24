@@ -1,6 +1,8 @@
-<x-base>
+@extends('base')
 
-    <x-slot:content>
+    @section('pageTitle', 'Développeur web')
+
+    @section('content')
         <section class="section homepageHeader">
             <div class="homepageHeader__presentation">
                 <h1>Thomas Bourgeois</h1>
@@ -45,17 +47,16 @@
                     @if ( $projects->count() )
                         @foreach ($projects as $project)
                             <x-project-card :project="$project" />
-                        @endforeach                        
+                        @endforeach
                     @else
                         <span>Aucun projet trouvé</span>
                     @endif
-                    
+
                 </ul>
             </div>
         </section>
-    </x-slot:content>
+    @endsection
 
-    <x-slot:javascript>
+    @section('javascript')
         <script src="{{ Vite::asset('resources/js/lottie.js') }}" type="module" defer></script>
-    </x-slot:javascript>
-</x-base>
+    @endsection

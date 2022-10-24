@@ -1,6 +1,8 @@
-<x-base>
+@extends('base')
 
-    <x-slot:content>
+    @section('pageTitle', $project->name)
+
+    @section('content')
         <article class="section projectArticle">
             <nav class="projectArticle__navbar">
                 <a href="/#projects_section">Retour à l'accueil</a>
@@ -70,10 +72,4 @@
 
         </article>
 
-    </x-slot:content>
-
-    <x-slot:javascript>
-    </x-slot:javascript>
-
-
-</x-base>
+    @endsection

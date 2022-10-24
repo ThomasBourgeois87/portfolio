@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [ProjectController::class, 'homepage'])->name('homepage');
+Route::get('/', [PortfolioController::class, 'homepage'])->name('homepage');
 
-Route::get('/projet/{project:slug}', [ProjectController::class, 'show'])->name('view_project');
+Route::group(['prefix' => 'project', 'as' => 'project.'], function () {
+    Route::get('/{project:slug}', [ProjectController::class, 'show'])->name('view');
+});
