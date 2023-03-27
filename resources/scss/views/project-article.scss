@@ -1,0 +1,106 @@
+.projectArticle {
+
+    margin-top: 8rem !important;
+    position: relative;
+
+    &__navbar {
+        margin-bottom: 4rem;
+
+        &>a {
+            color: var(--cta-primary);
+            font-weight: bold;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__header {
+        margin-bottom: 4rem;
+
+        &__title {
+            font-size: var(--h2);
+        }
+
+        &__categories {
+            color: var(--content-secondary);
+            margin-top: 2rem;
+
+            &>li {
+                margin-bottom: .6rem;
+            }
+        }
+
+        &__description {
+            margin-top: 2rem;
+        }
+    }
+
+    &__content {
+
+        &__container {
+            margin-top: 4rem;
+        }
+
+        &__imageContainer {
+            width: 100%;
+            position: relative;
+
+            &__image {
+                position: relative;
+                left: calc( -1 * var(--padding-mobile) );
+                width: 100vw;
+            }
+
+            &__caption {
+                margin-top: 1rem;
+                color: var(--content-secondary);
+                font-weight: bold;
+            }
+        }
+    }
+
+    &__relatedProject {
+        transition: all .3s ease-in-out;
+
+        &__footer {
+            margin-top: 14rem;
+        }
+
+        &__title {
+            margin-bottom: 2rem;
+        }
+
+        &__container {
+            position: relative;
+            padding: 2rem;
+            margin-top: 1rem;
+
+            &__imageContainer {
+                height: 6rem;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: -1;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+
+                &__image {
+                    width: 100%;
+                    transition: all .3s ease-in-out;
+                }
+            }
+        }
+
+
+        &:hover &__container__imageContainer__image{
+            transform: scale(1.2);
+            filter: brightness(0.9);
+            transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+        }
+    }
+}

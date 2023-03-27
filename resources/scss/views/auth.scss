@@ -1,0 +1,21 @@
+.Login {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+    }
+
+    form {
+        width: 18rem;
+    }
+}
+
+footer {
+    display: none !important;
+}

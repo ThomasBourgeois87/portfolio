@@ -6,7 +6,7 @@
         <section class="section homepageHeader">
             <div class="homepageHeader__presentation">
                 <h1>Thomas Bourgeois</h1>
-                <h4>Développeur web en recherche d'emploi</h4>
+                <h4>Développeur fullstack à Wizim</h4>
             </div>
             <div id="lottie" class="homepageHeader__animation"></div>
             <div class="homepageHeader__arrow">

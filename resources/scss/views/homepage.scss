@@ -1,0 +1,84 @@
+.homepageHeader {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    position: relative;
+
+    &__animation {
+        position: absolute;
+        bottom: 1rem;
+        left: 50%;
+        width: 12rem;
+        transform: translateX(-50%);
+    }
+
+    &__presentation {
+        margin: 5rem 0 4rem 0;
+
+
+        & > h1 {
+            margin-bottom: 2rem;
+        }
+
+        & > h4 {
+            color: var(--content-secondary);
+        }
+    }
+
+    &__arrow {
+        display: none;
+    }
+}
+
+.homepageMyselfPresentation {
+    display: grid;
+    gap: 6rem;
+    grid-template-columns: 1fr;
+
+
+    &__description {
+
+    }
+
+    &__textContainer {
+        max-width: 100%;
+    }
+
+    &__image {
+        height: min-content;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    &__imageContainer {
+        width: 16rem;
+        height: 16rem;
+        border-radius: 5000px;
+        overflow: hidden;
+        display: flex;
+        position: relative;
+
+        &__image {
+            object-fit: cover;
+            object-position: 0 -34px;
+            width: 100%;
+        }
+    }
+
+    &__viewMore {
+        margin-top: 4rem;
+    }
+}
+
+.homepageProjects {
+
+    &__projectsContainer {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 6rem;
+    }
+}
